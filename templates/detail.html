@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hompage Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1f2730;
+            color: #ffd700;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ffd700;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        a {
+            text-decoration: none;
+            color: #ffd700;
+            margin-right: 10px;
+        }
+        .button {
+            background-color: #ffd700;
+            color: #1c1c1c;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #e6bf00;
+        }
+        .button.delete {
+            background-color: #dc3545;
+        }
+        .button.delete:hover {
+            background-color: #bd2130;
+        }
+        .done-checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #ffd700;
+            border-radius: 3px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .done-checkbox.checked {
+            background-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <header>Todoo</header>
+    <div class="container">
+        <h1>Hompage Detail</h1>
+        <h2>{{ hompage.title }}</h2>
+        <p>{{ hompage.text }}</p>
+        <input type="checkbox" class="done-checkbox">
+        <label for="done">Done</label>
+        <br><br>
+        <a href="{% url 'update' hompage.id %}" class="button">Edit</a>
+        <form action="{% url 'destroy' hompage.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="button delete">
+        </form>
+        <a href="{% url 'hompages' %}" class="button">Back to Index</a>
+    </div>
+</body>
+</html>

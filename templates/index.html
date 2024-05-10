@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hompage Index</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1c1c1c;
+            color: #ffd700;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #ffd700;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1c1c1c;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #ffd700;
+            color: #0e0e0e;
+        }
+    </style>
+</head>
+<body>
+    <header>Todoo</header>
+    <h1>Hompages by Mobile legends</h1>
+    <ul>
+        {% for item in hompage %}
+            <li><a href="{% url 'detail' item.id %}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <div style="text-align: center;">
+        <a href="{% url 'create' %}">Create New Task</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Hompage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffd700;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            font-size: 18px;
+            color: #ffd700;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 2px solid #ffd700;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #ffd700;
+            color: #222;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Hompage</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ hompage.title }}"><br>
+        <label for="text">Text:</label><br>
+        <textarea id="text" name="text">{{ hompage.text }}</textarea><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
